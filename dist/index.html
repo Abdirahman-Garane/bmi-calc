@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="output.css" />
+    <title></title>
+  </head>
+  <body class="bg-white">
+    <div class="container">
+      <div
+        class="wrap rounded flex flex-col gap-2 items-center md:justify-center w-4/5 h-96 mx-auto mt-3 bg-[#1D5D9B]"
+      >
+        <div
+          class="inputs md:mr-11 ml-4 mt-6 items-center flex flex-col md:flex-row"
+        >
+          <h1 class="text-lg text-white p-1 capitalize font-medium md:mr-2">
+            enter wight in :
+          </h1>
+          <input
+            id="weight"
+            class="mt-2 rounded w-4/5 md:w-60 focus:outline-black text-2xl p-2 h-10"
+            type="text"
+          />
+        </div>
+        <div
+          class="inputs md:mb-8 ml-4 mt-6 items-center flex flex-col md:flex-row"
+        >
+          <h1 class="text-white text-lg p-1 capitalize font-medium md:mr-2">
+            enter Your Height
+          </h1>
+          <input
+            id="height"
+            class="mt-2 rounded w-4/5 md:w-2/4 focus:outline-black text-2xl p-2 h-10"
+            type="text"
+          />
+        </div>
+        <div class="btn flex justify-center mt-4 md:mt-0 md:ml-20 gap-x-2">
+          <button
+            id="submit"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+          >
+            Submit
+          </button>
+          <button
+            class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 border border-red-700 rounded"
+          >
+            Clear
+          </button>
+        </div>
+        <div
+          class="text w-fit rounded-md md:ml-20 bg-[#75C2F6] flex justify-center items-center flex-col mt-3"
+        >
+          <h1
+            id="bmi"
+            class="text-lg capitalize font-medium text-[#435B66]"
+          ></h1>
+          <h1
+            id="result"
+            class="text-2xl capitalize font-medium text-[#435B66]"
+          ></h1>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    document.getElementById("submit").addEventListener("click", function () {
+      var weight = document.getElementById("weight").value;
+      var height = document.getElementById("height").value;
+      // var h2=height/10000
+      var bmi = weight / (height * height);
+
+      // console.log(formula);
+      if (bmi <= 18) {
+        document.getElementById("result").innerHTML = bmi;
+        document.getElementById("bmi").innerHTML = "under weight";
+      } else if (bmi >= 18.5 && bmi <= 24.9) {
+        document.getElementById("result").innerHTML = bmi;
+        document.getElementById("bmi").innerHTML = "Normal";
+      } else if (bmi >= 25 && bmi <= 24.9) {
+        document.getElementById("result").innerHTML = bmi;
+        document.getElementById("bmi").innerHTML = "over weight";
+      } else if (bmi >= 30 && bmi <= 39.9) {
+        document.getElementById("result").innerHTML = bmi;
+        document.getElementById("bmi").innerHTML = "over obesity";
+      } else if (bmi >= 40) {
+        document.getElementById("result").innerHTML = bmi;
+        document.getElementById("bmi").innerHTML = "extremery obesity";
+      }
+    });
+  </script>
+</html>
